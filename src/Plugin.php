@@ -11,6 +11,7 @@ use Composer\IO;
 use Composer\Plugin as CPlugin;
 use Composer\EventDispatcher;
 use Composer\Installer;
+use Composer\Util\HttpDownloader;
 
 class Plugin implements
     CPlugin\PluginInterface,
@@ -164,7 +165,8 @@ class Plugin implements
                     }
                 }
 
-                $r = new ParallelizedComposerRepository($repo, $this->io, $this->config);
+                $downloader = new HttpDownloader($this->io, $this->config);
+                $r = new ParallelizedComposerRepository($repo, $this->io, $this->config, $downloader);
                 $r->prefetch();
             }
         }

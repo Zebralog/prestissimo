@@ -115,9 +115,9 @@ class Plugin implements
     {
         return array(
             CPlugin\PluginEvents::PRE_FILE_DOWNLOAD => 'onPreFileDownload',
-            Installer\InstallerEvents::PRE_OPERATIONS_EXEC => array(
-                array('onPostDependenciesSolving', PHP_INT_MAX),
-            ),
+            // Installer\InstallerEvents::PRE_OPERATIONS_EXEC => array(
+            //     array('onPostDependenciesSolving', PHP_INT_MAX),
+            // ),
         );
     }
 

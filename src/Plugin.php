@@ -49,6 +49,13 @@ class Plugin implements
         'https'
     );
 
+    public function deactivate(Composer $composer, IO\IOInterface $io) {
+        // placeholder method to satisfy implemented abstract classes requirements.
+    }
+    public function uninstall(Composer $composer, IO\IOInterface $io) {
+        // placeholder method to satisfy implemented abstract classes requirements.
+    }
+
     public function activate(Composer $composer, IO\IOInterface $io)
     {
         // @codeCoverageIgnoreStart

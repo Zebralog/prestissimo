@@ -12,6 +12,7 @@ use Composer\Plugin as CPlugin;
 use Composer\EventDispatcher;
 use Composer\Installer;
 use Composer\Util\HttpDownloader;
+use Composer\Plugin\PreFileDownloadEvent;
 
 class Plugin implements
     CPlugin\PluginInterface,
@@ -123,7 +124,7 @@ class Plugin implements
     /**
      * Keep-Alived file downloader
      */
-    public function onPreFileDownload(CPlugin\PreFileDownloadEvent $ev)
+    public function onPreFileDownload(\Composer\Plugin\PreFileDownloadEvent $ev)
     {
         if ($this->disabled) {
             return;
@@ -133,14 +134,13 @@ class Plugin implements
         if (!in_array($scheme, self::$supportedSchemes, true)) {
             return;
         }
-
-        $rfs = $ev->getRemoteFilesystem();
-        $curlrfs = new CurlRemoteFilesystem(
-            $this->io,
-            $this->config,
-            $rfs->getOptions()
-        );
-        $ev->setRemoteFilesystem($curlrfs);
+        // $rfs = $ev->getRemoteFilesystem();
+        // $curlrfs = new CurlRemoteFilesystem(
+        //     $this->io,
+        //     $this->config,
+        //     $rfs->getOptions()
+        // );
+        // $ev->setRemoteFilesystem($curlrfs);
     }
 
     public function prefetchComposerRepositories()

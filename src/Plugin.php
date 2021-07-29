@@ -176,18 +176,18 @@ class Plugin implements
     /**
      * pre-fetch parallel by curl_multi
      */
-    public function onPostDependenciesSolving(Installer\InstallerEvent $ev)
-    {
-        if ($this->disabled) {
-            return;
-        }
-        $prefetcher = new Prefetcher;
-        $prefetcher->fetchAllFromOperations(
-            $this->io,
-            $this->config,
-            $ev->getOperations()
-        );
-    }
+    // public function onPostDependenciesSolving(Installer\InstallerEvent $ev)
+    // {
+    //     if ($this->disabled) {
+    //         return;
+    //     }
+    //     $prefetcher = new Prefetcher;
+    //     $prefetcher->fetchAllFromOperations(
+    //         $this->io,
+    //         $this->config,
+    //         $ev->getOperations()
+    //     );
+    // }
 
     public function disable()
     {
